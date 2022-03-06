@@ -7,7 +7,7 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 // Add services to the container.
-builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("AntibiogramDatabase"));
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 builder.Services.AddSingleton<PatientsService>();
 builder.Services.AddSingleton<LabsService>();
 

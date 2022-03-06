@@ -8,7 +8,7 @@ public class LabsService
 {
 	private readonly IMongoCollection<Lab> _collection;
 	
-	public LabsService(IOptions<MongoDbSettings> databaseSettings)
+	public LabsService(IOptions<DatabaseSettings> databaseSettings)
 	{
 		var client = new MongoClient(databaseSettings.Value.ConnectionString);
 		var database = client.GetDatabase(databaseSettings.Value.DatabaseName);

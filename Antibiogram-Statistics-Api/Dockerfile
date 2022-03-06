@@ -19,5 +19,5 @@ RUN dotnet publish "Antibiogram-Statistics-Api.csproj" -c Release -o /app/publis
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENV AntibiogramDatabase__ConnectionString mongodb://localhost:27017/
+ENV DatabaseSettings__ConnectionString mongodb://localhost:27017/
 ENTRYPOINT ["dotnet", "Antibiogram-Statistics-Api.dll"]

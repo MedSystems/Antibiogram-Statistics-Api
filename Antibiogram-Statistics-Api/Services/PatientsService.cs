@@ -8,7 +8,7 @@ public class PatientsService
 {
 	private readonly IMongoCollection<Patient> _collection;
 	
-	public PatientsService(IOptions<MongoDbSettings> databaseSettings)
+	public PatientsService(IOptions<DatabaseSettings> databaseSettings)
 	{
 		var client = new MongoClient(databaseSettings.Value.ConnectionString);
 		var database = client.GetDatabase(databaseSettings.Value.DatabaseName);
