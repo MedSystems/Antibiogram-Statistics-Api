@@ -17,7 +17,7 @@ public class LabsController : ControllerBase
 		_logger = logger;
 	}
 
-	[HttpGet]
+	[HttpGet("", Name = "GetLabs")]
 	public async Task<List<Lab>> Get()
 	{
 		var res = await _labsService.GetAsync();
@@ -25,7 +25,7 @@ public class LabsController : ControllerBase
 		return res;
 	}
 
-	[HttpGet("{id:length(24)}")]
+	[HttpGet("{id:length(24)}", Name ="GetLab")]
 	public async Task<ActionResult<Lab>> Get(string id)
 	{
 		var item = await _labsService.GetAsync(id);
@@ -40,7 +40,7 @@ public class LabsController : ControllerBase
 		return item;
 	}
 
-	[HttpPost]
+	[HttpPost("", Name = "AddLab")]
 	public async Task<IActionResult> Post(Lab newItem)
 	{
 		await _labsService.CreateAsync(newItem);
@@ -50,7 +50,7 @@ public class LabsController : ControllerBase
 		return res;
 	}
 
-	[HttpPut("{id:length(24)}")]
+	[HttpPut("{id:length(24)}", Name = "UpdateLab")]
 	public async Task<IActionResult> Update(string id, Lab updatedItem)
 	{
 		var item = await _labsService.GetAsync(id);
@@ -68,7 +68,7 @@ public class LabsController : ControllerBase
 		return NoContent();
 	}
 
-	[HttpDelete("{id:length(24)}")]
+	[HttpDelete("{id:length(24)}", Name = "DeleteLab")]
 	public async Task<IActionResult> Delete(string id)
 	{
 		var item = await _labsService.GetAsync(id);

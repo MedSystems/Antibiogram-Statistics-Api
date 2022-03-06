@@ -7,7 +7,7 @@
     <RootNamespace>MedicalSystems.Antibiogram.StatisticsApi</RootNamespace>
     <UserSecretsId>86bc821d-98a9-4c8f-bef8-09c7ba70ce06</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-		<DockerfileTag>antibiogram-statistics-api</DockerfileTag>
+	<DockerfileTag>antibiogram-statistics-api</DockerfileTag>
   </PropertyGroup>
 
   <ItemGroup>

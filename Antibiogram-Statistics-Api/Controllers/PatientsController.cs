@@ -17,7 +17,7 @@ public class PatientsController : ControllerBase
 		_logger = logger;
 	}
 
-	[HttpGet]
+	[HttpGet("", Name = "GetPatients")]
 	public async Task<List<Patient>> Get()
 	{
 		var res = await _patientsService.GetAsync();
@@ -25,7 +25,7 @@ public class PatientsController : ControllerBase
 		return res;
 	}
 
-	[HttpGet("{id:length(24)}")]
+	[HttpGet("{id:length(24)}", Name = "GetPatient")]
 	public async Task<ActionResult<Patient>> Get(string id)
 	{
 		var item = await _patientsService.GetAsync(id);
@@ -40,7 +40,7 @@ public class PatientsController : ControllerBase
 		return item;
 	}
 
-	[HttpPost]
+	[HttpPost("", Name = "AddPatient")]
 	public async Task<IActionResult> Post(Patient newItem)
 	{
 		await _patientsService.CreateAsync(newItem);
@@ -50,7 +50,7 @@ public class PatientsController : ControllerBase
 		return res;
 	}
 
-	[HttpPut("{id:length(24)}")]
+	[HttpPut("{id:length(24)}", Name = "UpdatePatient")]
 	public async Task<IActionResult> Update(string id, Patient updatedItem)
 	{
 		var item = await _patientsService.GetAsync(id);
@@ -68,7 +68,7 @@ public class PatientsController : ControllerBase
 		return NoContent();
 	}
 
-	[HttpDelete("{id:length(24)}")]
+	[HttpDelete("{id:length(24)}", Name = "DeletePatient")]
 	public async Task<IActionResult> Delete(string id)
 	{
 		var item = await _patientsService.GetAsync(id);

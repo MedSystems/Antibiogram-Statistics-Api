@@ -8,12 +8,6 @@ builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("AntibiogramDatabase"));
-var EnviromentConnectionString = builder.Configuration.GetValue<string>("connection-string");
-if (!string.IsNullOrEmpty(EnviromentConnectionString))
-{
-	builder.Configuration["AntibiogramDatabase:ConnectionString"] = EnviromentConnectionString;
-}
-
 builder.Services.AddSingleton<PatientsService>();
 builder.Services.AddSingleton<LabsService>();
 
