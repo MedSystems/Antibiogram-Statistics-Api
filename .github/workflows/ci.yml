@@ -2,8 +2,7 @@ name: publish
 
 on:
   push:
-    tags:
-      - "*"
+  pull_request:
 
 jobs:
   publish-antibiogram-statistics-api-image:
