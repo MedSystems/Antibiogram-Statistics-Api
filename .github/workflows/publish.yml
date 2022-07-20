@@ -6,7 +6,7 @@ on:
       - "*"
 
 jobs:
-  publish-antibiogram-statistics-api-image:
+  publish-image:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.SAGHARI_PACKAGES_PAT }}
 
-    - name: Build the Antibiogram-Statistics-Api Docker image
+    - name: Build the project Docker image
       run: |
         docker build . -f ./Antibiogram-Statistics-Api/Dockerfile --tag ghcr.io/medsystems/antibiogram-statistics-api:latest
         docker push ghcr.io/medsystems/antibiogram-statistics-api:latest
